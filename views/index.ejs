@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      header nav{
+        width: 100%;
+        background-color: black;
+        padding: 1rem;
+      }
+
+      nav a{
+        color: white;
+        padding: 0.5rem 2rem;
+        text-decoration: none;
+      }
+
+      section {
+        padding: 2.5rem 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 3rem;
+      }
+
+      .products-table {
+        width: 100%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin-top: 2rem;
+      }
+
+      .products-table th{
+        background-color: rgb(201, 201, 201);
+      }
+
+      .products-table td,
+      .products-table th {
+        border: 1px solid black;
+        text-align: center;
+        padding: 0.25rem 1rem;
+      }
+
+      .flex{
+        display: flex;
+      }
+
+      .flex button{
+        padding:0.15rem 0.5rem;
+        margin-left: 0.5rem;
+      }
+    </style>
+    <script>
+      function onLimitChange(){
+        const limitElement = document.getElementById('limit');
+        const limitValue = limitElement.value;
+
+        const url = new URL(window.location.href);
+
+        url.searchParams.set("limit", limitValue);
+
+        window.location.href = url.toString();
+      }
+
+      function sortByPrice(order){
+        const url = new URL(window.location.href);
+        url.searchParams.set("sort", JSON.stringify({price:order}));
+        window.location.href = url.toString();
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <a href="/home">Home</a>
+          <a href="/login">Login</a>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="container">
+        <h1 class="title">Hello <%= user %></h1>
+
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Brand</th>
+              <th>Category</th>
+              <th>
+                <div class="flex">
+                  <span>Price</span>
+                  <button onclick="sortByPrice(-1)">v</button>
+                  <button onclick="sortByPrice(1)">^</button>
+                </div>
+              </th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0;i<products.length;i++) { %>
+              <tr>
+                <td><%= products[i].id %></td>
+                <td><%= products[i].name %></td>
+                <td><%= products[i].brand %></td>
+                <td><%= products[i].category %></td>
+                <td><%= products[i].price %></td>
+                <td><%= products[i].createdAt %></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <select name="limit" id="limit" onchange="onLimitChange()">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </section>
+  </body>
+</html>

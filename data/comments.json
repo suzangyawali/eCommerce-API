@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "postId":1,
+        "comments": "Lorem ipsum det, consectetur adipiscing elit."
+    },
+    {
+        "id":2,
+        "postId":2,
+        "comments": "Lorem ipsum dolor sit amet, consectetur adipiit."
+    },
+    {
+        "id":3,
+        "postId":3,
+        "comments": "Lorem idolor sit amet, consectetur adipiscing elit."
+    },
+    {
+        "id":4,
+        "postId":4,
+        "comments": "Lorem ipsum dolor consectetur adipiscing elit."
+    }
+]

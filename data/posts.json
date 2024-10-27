@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "userId":1,
+        "title":"The times",
+        "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    },
+    {
+        "id":2,
+        "userId":1,
+        "title":"Jungle Book",
+        "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    },
+    {
+        "id":3,
+        "userId":1,
+        "title":"Times Square",
+        "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    }
+]
